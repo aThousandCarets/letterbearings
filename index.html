@@ -151,6 +151,41 @@ dialog textarea{display:block;width:100%;margin:12px 0 8px;min-height:155px;resi
 @media(pointer:coarse){.editline{grid-template-columns:1fr}.editline input{display:none}}
 @media(max-width:440px){.alphabet{gap:1px}.key-row{gap:3px}.tileboard{gap:4px}.game-tools{gap:5px}.score{gap:5px}.rules-button{width:38px;height:40px}.tab{padding-inline:8px}.branch-item{padding-inline:0}}
 @media(prefers-reduced-motion:reduce){.needle,.bounds-track span{transition:none}.compass.surge,.range.pulse .bounds-track{animation:none}}
+  .bounds-track span { min-width: 0; }
+
+#alphabet { gap: 0; }
+.alphabet span { border-inline: 1px solid var(--card); }
+
+.alphabet .unavailable {
+  background: #f0f1e9;
+  color: #687365;
+}
+
+.branch-level + .branch-level::before {
+  left: var(--parent-center);
+  height: 7px;
+}
+
+.branch-level + .branch-level .branch-options::before {
+  content: none;
+}
+
+.branch-level + .branch-level::after {
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: min(var(--parent-center), var(--first-center));
+  right: calc(100% - max(var(--parent-center), var(--last-center)));
+  border-top: 1px solid #7e9981;
+}
+
+.branch-options .unavailable .branch-label {
+  background: #f0f1e9;
+  border-color: #dce0d5;
+  color: #687365;
+  box-shadow: none;
+  cursor: default;
+}
 </style>
 </head>
 <body>
@@ -275,8 +310,77 @@ table tablet tally tango tapas taper taste tasty teach tempo tenet tenor terra t
 ultra umber uncle under undid unfit unify union unite units unlit unmet unset untie until unzip upper upset urban usher usual
 valid value valve vapor vault venue verge verse verve video vigil villa vinyl viola viper viral virus visit vista vital vivid vocal vodka vogue voice voter vowel
 wafer wager wagon waist waive waltz water weave wedge whale wheat wheel where which while whine whirl whisk white whole whose widen widow width wield wind windy witch witty woman woody world worry worth woven wreck wrist write wrong wrote
-yacht yearn yeast yield young youth zebra zest zesty zonal
-`.normalize("NFKC").toUpperCase().trim().split(/\s+/).filter(word => /^[A-Z]+$/.test(word)))].sort();
+yacht yearn yeast yield young youth zebra zest zesty zonal abacus alpaca anemone antelope apricot arcade armadillo asteroid aurora avalanche badger bamboo
+barnacle basalt beehive beetle bonsai blossom boulder bracken brioche bromeliad bungalow butterfly
+cabbage caldera canary capybara caravan cardinal carousel cashew cattail ceramic chameleon chandelier
+charcoal chestnut chickadee chinchilla chrysalis cinnamon cirrus citadel clementine coconut colander columbine
+compass coriander cornbread courtyard cranberry creosote croissant daffodil dandelion daybreak deciduous dragonfly
+driftwood dulcimer eaglet echidna elderberry ellipsis emerald enamel eucalyptus evergreen falafel fernery
+firefly fiddlehead flamingo floodplain forsythia foxglove freshwater gazelle geranium glider glowworm goldfinch
+gossamer granola grapefruit grassland greenhouse hackberry hammock handbell hardwood hazelnut hedgehog heliotrope
+highland honeycomb hummus hurricane hyacinth hydrangea iceberg iguana inkstone isthmus jacaranda jasmine
+juniper kangaroo kestrel keyhole kimchi kingfisher kohlrabi kookaburra labyrinth ladybug lavender lightning
+lilypad limestone linguine lizard loquat lupine macaroni magnolia mandarin marigold marmalade marmot
+marshland mayflower meadowlark meridian millstone milkweed monsoon moonbeam moonflower mosaic mountain mulberry
+mushroom narwhal nectarine nightfall nightjar notebook nutmeg obsidian octopus origami oriole osprey
+palisade pancake pangolin papaya paperclip parakeet parsnip pebble pelican pendulum periwinkle petunia
+phonograph pinecone pinewood pinniped pistachio plumeria porcupine porpoise primrose pumpkin quartzite quesadilla
+raccoon rainbow raspberry reindeer rhubarb rivulet rosemary roundabout saffron sailboat sandstone sassafras
+seahorse seashell seedling semicolon snowdrop snowflake songbird sourdough sparrow spearmint starlight starfish
+stalactite sunflower sundial sweetgrass sycamore tamarind tangerine tapestry terrarium terracotta timberline toadstool
+topiary tortoise toucan trampoline treehouse tricorne trillium trombone tundra turquoise umbrella unicycle
+vanilla verdigris vermilion violet wainscot wallaby wallpaper walnut watercress waterfall watermelon waterwheel
+waxwing whimbrel windflower woodpecker xylophone yarrow yellowtail zeppelin zucchini absence abundance academy accent accept access account accuracy accurate achieve addition address adjacent admire advance
+advice affection airtime algorithm alliance allocate allspice alongside altitude ambient ambulance anatomy anchor ancient anecdote
+animated antenna antique apology apparent appendix appliance appoint approval aquatic architect arithmetic armchair arrange arrival
+article artwork assemble assign athlete athletic attach attract audience author avenue aviation backboard background backpack
+backrest balcony banner barefoot barley barrel baseball bedrock bedroom bedsheet before behalf behave behold beside
+binocular blackberry blackboard blazer blizzard blueberry bluegrass bobcat bookmark border borrow botanical bottle boundary bramble
+breakfast brickwork brilliant bronze browser bubbling buffalo bulletin bumper bundle buoyant bushel buttercup buttermilk button
+camellia campsite cancel capable capacity captain caramel cardamom caregiver cartwheel cassette catalog catalyst cattle cavern
+cement centaur certain channel chapter charming cheerful cherry chirping chocolate chuckle cinema circuit circular cityscape
+classic coastal coaster cobbler cockatiel collate colorful commerce committee common community complete compose compost compute
+concrete confetti console constant contour contract control cookie corner correct cotton countless courage cousin cowboy
+coyote crayon creature cricket crimson crochet crouch crumble crystal cucumber cupcake curious custom cuttlefish dahlia
+damsel dancer dangling daylight dazzle dealer decimal dedicate deepen defend define delete depend deposit describe
+deserve detail dillweed dinner dinosaur direct discover display divide dolphin domino downhill download downstairs downtown
+drizzle duration earlier eastward editor educate effect eggplant eggshell elastic element elevate elevator embrace emerge
+emotion emperor emphasis employee encounter energy enough enrich equinox especially eternity examine exceed exhibit explain
+extinct eyebrow fabric family favorite feather feedback figure finish fixture flannel flurry foliage follow fondue
+forecast forest forever forget formula foster fountain freedom freight frostbite frozen future galaxy gallon garden
+garland garment gazebo general geometry gesture gibbon glassware glorious glossary goblet golden goldfish gondola gooseberry
+gourmet graceful graduate grammar granite greenery growth guesswork guidebook gumdrop hairbrush haircut handcraft handle handrail
+harbor harmonica harmony hawthorn headlight headline headrest headset healthy history holiday homeland homemade honeydew hornet
+horsehair horseshoe hospital hovercraft however icebox illustrate imagery imagine immerse impact improve include income industry
+inhale initial inspect inspire instead instrument intend invent invite ironwood jacket jackfruit jackrabbit jigsaw joystick
+juggling kernel keyboard keynote kilowatt kingdom kinglet kitchen knitting lakeside lamplight lamprey landscape lanyard lasagna
+lattice laundry leaflet lemonade lesson license lifeboat lifelike lightbulb lighthouse lightness limeade limelight limerick liquid
+listener literate little location lockbox logical luggage lunchroom magazine magnetic mailbox mainstay majestic mallard manager
+manatee maneuver manifest mansion manual marble marsupial mascot mattress maximum meadow meantime measure mechanic medallion
+member merchant mercury message midnight migration milestone mineral minute mirror mitten modest moment monarch monitor
+monopoly monotone monument moonrise mooring morning mortar movement multiple musical napkin narration nation nearby neighbor
+newsletter newsprint nightlight nitrogen notepad nothing nowhere nozzle number nursery nutrition nutshell oatmeal occasion oceanside
+odyssey ongoing onward opaque opinion opossum opposite optimal optimum orchard orchestra ordinary ornament osmosis outdoor
+outlet overlap overnight pageant paintbox parsley partner partridge passport password pavilion pendant percentage percussion perfect
+perfume periodic periscope personal persuade picture pictured pillar placement platform platypus pocket popcorn popover popular
+postcard precision prepare primary primate printer profile program promise puffin pulley pullover pumice punctual pursue
+quaint quarter quartet quince racing raincoat raindrop rainfall rainstorm rainwater reader reading redbud redwood refinery
+region register reliable relocate repair request research resemble reserve resource respect reveal review reward rhythm
+ribbon riddle rising riverside roadway robotics rotation roundness rubber running runway sailcloth salmon saltwater sampler
+sandcastle sandpiper satellite scallion scarecrow schooner science scissors scoreboard screen seagull seasonal seaweed secondary selection
+sentence sequel sequence service shadow shareable shelter sherbet shimmer shoreline sibling sidewalk signature silverware similar
+simple sincere sketch sketchbook skillet sleepover snowball snowplow soccer software softwood solution sonata sparkle speaker
+spelling sponge spotlight staircase stampede starboard startle storybook stranger strawberry sturgeon sundown sunlight sunroof sunset
+sunshine supernova supersonic support suppose surface survey sweater sweatshirt swimmer swimming symphony synonym synthesis tadpole
+tagline takeoff tandem tangelo taproot tarantula teapot telescope tendril tennis termite terrace texture theater thimble
+thistle thorough thoughtful thrasher thunderous ticket tilapia timber timeless timeline timepiece timetable tiptoe titanium toffee
+tomatillo tomato toothpick torchlight tornado tractor traffic trailhead trainer training tranquil translate triangle tricycle trolley
+trotting truffle tumble tumbler tumbleweed tutorial twilight unaware uncommon uncover underbrush unfold unique universe unlock
+unpack unroll update uplift upside uptown upward useful vacuum valleys valuable variable variation varsity vehicle
+velocity veranda vertical vessel vicinity victory viewer village vintage visible vision vividness vocalist volleyball volume
+voyage waffle warehouse warning watchband watchful waterside wavelength weather weekday welcome wellspring westward wheelhouse whirligig
+whistle whiteboard wildlife wisteria woodcraft workbench workplace wristband yearbook yearling yearly yellow yourself zigzag zinnia
+`.normalize("NFKC").toUpperCase().trim().split(/\s+/).filter(word => /^[A-Z]{5,10}$/.test(word)))].sort();
 
 // Sorted words occupy equal-width arithmetic intervals. A trie stores the
 // integer boundaries of each prefix, so repeated zooms remain exact.
@@ -296,23 +400,36 @@ corpus.forEach((word, index) => {
   node.end = true;
 });
 
-function dailyAnswer(date, mode) {
-  const ordered = dailyAnswer.order;
-  const day = Math.floor(Date.parse(date + "T00:00:00Z") / 86400000);
-  const split = Math.floor(ordered.length / 2);
-  const start = mode === "normal" ? 0 : split;
-  const size = mode === "normal" ? split : ordered.length - split;
-  return ordered[start + ((day % size) + size) % size];
+const UINT32_SIZE = 0x100000000;
+
+function mixUint32(value) {
+  value = Math.imul(value ^ (value >>> 16), 0x85ebca6b);
+  value = Math.imul(value ^ (value >>> 13), 0xc2b2ae35);
+  return (value ^ (value >>> 16)) >>> 0;
 }
 
-dailyAnswer.order = [...corpus];
-let seed = 0x6c657474;
-for (let index = dailyAnswer.order.length - 1; index > 0; index--) {
-  seed ^= seed << 13;
-  seed ^= seed >>> 17;
-  seed ^= seed << 5;
-  const other = (seed >>> 0) % (index + 1);
-  [dailyAnswer.order[index], dailyAnswer.order[other]] = [dailyAnswer.order[other], dailyAnswer.order[index]];
+function dailyCode(date, mode) {
+  const day = Math.floor(Date.parse(date + "T00:00:00Z") / 86400000);
+  const size = corpus.length;
+  const limit = UINT32_SIZE - (UINT32_SIZE % size);
+  let seed = (day ^ 0x6c657474) >>> 0;
+  let sample;
+
+  do {
+    sample = mixUint32(seed);
+    seed = (seed + 0x9e3779b9) >>> 0;
+  } while (sample >= limit);
+
+  let rank = sample % size;
+  if (mode === "prestige") {
+    rank = (rank + Math.floor(size / 2)) % size;
+  }
+
+  return 2 * rank + 1;
+}
+
+function dailyAnswer(date, mode) {
+  return corpus[Math.floor(dailyCode(date, mode) / 2)];
 }
 
 function entryAt(answer, index, guess) {
@@ -506,22 +623,35 @@ function legalLetters(node, low, high) {
 
 function renderRange(won) {
   const prefix = answerNow().slice(0, state.next);
-  available = won ? [] : legalLetters(confirmedNodes(prefix).at(-1), state.low, state.high);
+  const node = confirmedNodes(prefix).at(-1);
+  const letters = prefix ? [...node.children.keys()] : [...alphabet];
+  available = won ? [] : legalLetters(node, state.low, state.high);
+
   const container = $("alphabet");
   const range = $("range");
   range.hidden = won;
   container.hidden = mathVisible;
   container.replaceChildren();
-  for (const letter of available) {
+
+  for (const letter of letters) {
     const cell = document.createElement("span");
     cell.textContent = letter;
+    if (!available.includes(letter)) {
+      cell.classList.add("unavailable");
+      cell.setAttribute("aria-hidden", "true");
+    }
     container.append(cell);
   }
+
   const first = available[0];
   const last = available.at(-1);
   $("bounds").textContent = first === last ? (first ?? "") : first + "–" + last;
-  range.style.setProperty("--lower", (first ? alphabet.indexOf(first) / 26 * 100 : 0) + "%");
-  range.style.setProperty("--upper", (last ? (25 - alphabet.indexOf(last)) / 26 * 100 : 0) + "%");
+
+  const lower = first ? letters.indexOf(first) / letters.length : 0;
+  const upper = last ? (letters.length - 1 - letters.indexOf(last)) / letters.length : 0;
+  range.style.setProperty("--lower", lower * 100 + "%");
+  range.style.setProperty("--upper", upper * 100 + "%");
+
   for (const letter of alphabet) {
     $("key-" + letter).disabled = !state.drafting && !available.includes(letter);
   }
@@ -554,47 +684,82 @@ function renderMath() {
   const branches = $("branches");
   branches.replaceChildren();
 
-  function addLevel(letters, picked, interval) {
+  let parentCenter = "50%";
+
+  function addLevel(letters, picked = null, interval = null) {
     if (!letters.length) return;
+
     const level = document.createElement("div");
     level.className = "branch-level";
+
     const options = document.createElement("div");
     options.className = "branch-options";
     options.style.setProperty("--branch-count", letters.length);
+
+    // Match the centered option row's 42px slot cap in the connector.
+    const center = index => {
+      const offset = index + 0.5 - letters.length / 2;
+      return `calc(50% + ${offset} * min(42px, 100% / ${letters.length}))`;
+    };
+
+    level.style.setProperty("--parent-center", parentCenter);
+    level.style.setProperty("--first-center", center(0));
+    level.style.setProperty("--last-center", center(letters.length - 1));
+
     for (const letter of letters) {
+      const selected = letter === picked;
+      const active = picked === null;
+      const enabled = active && available.includes(letter);
       const cell = document.createElement("span");
-      const label = document.createElement(picked ? "span" : "button");
-      if (!picked) {
-        label.type = "button";
-        label.setAttribute("aria-label", "Choose " + letter);
-        label.addEventListener("click", () => {
-          keyboardLetter(letter);
-          if (!isWon()) $("branches").querySelector("button")?.focus({ preventScroll:true });
-        });
-      }
-      cell.className = picked ? "branch-item picked" : "branch-item";
+      const label = document.createElement(active ? "button" : "span");
+
+      cell.className = "branch-item";
+      cell.classList.toggle("picked", selected);
+      cell.classList.toggle("unavailable", !selected && !enabled);
       label.className = "branch-label";
       label.textContent = letter;
+
+      if (active) {
+        label.type = "button";
+        label.disabled = !enabled;
+        label.setAttribute("aria-label", "Choose " + letter);
+        if (enabled) {
+          label.addEventListener("click", () => {
+            keyboardLetter(letter);
+            if (!isWon()) {
+              branches.querySelector("button:not(:disabled)")?.focus({ preventScroll: true });
+            }
+          });
+        }
+      }
+
       cell.append(label);
       options.append(cell);
     }
+
     level.append(options);
     if (interval) {
       const value = document.createElement("code");
       value.className = "interval";
-      value.textContent = "[" + interval.low + "/" + corpus.length + ", " + interval.high + "/" + corpus.length + ")";
+      value.textContent = "[" + interval.low + "/" + corpus.length + ", " +
+        interval.high + "/" + corpus.length + ")";
       level.append(value);
     }
+
     branches.append(level);
+    if (picked !== null) parentCenter = center(letters.indexOf(picked));
   }
 
-  addLevel(["Start"], true, root);
-  [...prefix].forEach((letter, index) => addLevel([letter], true, nodes[index + 1]));
+  addLevel(["Start"], "Start", root);
+  [...prefix].forEach((letter, index) => {
+    addLevel([...nodes[index].children.keys()], letter, nodes[index + 1]);
+  });
+
   if (isWon()) {
     const { low } = nodes.at(-1);
-    addLevel(["∎"], true, { low, high:low + 1 });
+    addLevel(["∎"], "∎", { low, high: low + 1 });
   } else {
-    addLevel(available, false);
+    addLevel([...nodes.at(-1).children.keys()]);
   }
 }
 
