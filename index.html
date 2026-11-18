@@ -1009,7 +1009,7 @@ function shareText() {
 
   return [
     "Letter Bearings · " + name + " · " + date,
-    state.score === 0 ? "Perfect Game! (0)" : state.score + (state.score === 1 ? " point" : " points"),
+    state.score === 0 ? "Perfect Game! (+0)" : ("+" + state.score + (state.score === 1 ? " point" : " points")),
     "",
     ...lines,
     "",
