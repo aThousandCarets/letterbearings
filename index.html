@@ -138,10 +138,21 @@ h1{font:500 clamp(48px,8vw,79px)/.99 Georgia,serif;letter-spacing:-.068em;margin
 .math a,.foot a{color:var(--green);text-underline-offset:3px}
 .win{margin-top:12px;padding:10px 12px;background:var(--soft);border-radius:9px;display:flex;align-items:center;justify-content:space-between;gap:9px}
 .win span{font-size:13px;color:var(--green)}
-.foot{color:var(--muted);font-size:12px;padding-block:17px 25px;text-align:center}
-.credits{margin-top:6px;display:flex;gap:4px;align-items:baseline;justify-content:center}
+.foot{color:var(--muted);font-size:12px;padding-block:17px 25px;text-align:center;flex-wrap: nowrap;white-space: nowrap;}
+.credits {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+}
 .credit-popover{position:relative}
-#credit-toggle{min-height:35px}
+.credits::before { content: "·"; }
+/* Keep the credits popover inside the right edge. */
+.foot .credit-card {
+  left: auto;
+  right: 0;
+  transform: none;
+}
+#credit-toggle { min-height: 24px; }
 .credit-card{position:absolute;display:grid;gap:4px;z-index:3;left:50%;bottom:calc(100% + 6px);transform:translateX(-50%);background:var(--card);padding:10px 14px;border:1px solid var(--rule);border-radius:8px;box-shadow:0 3px 12px #24382120;min-width:max-content}
 .credit-card::after{position:absolute;inset:100% 0 auto;height:8px;content:""}
 dialog{max-width:min(460px,calc(100vw - 30px));border:1px solid var(--rule);border-radius:var(--round);background:var(--card);color:var(--ink);padding:20px}
@@ -152,7 +163,9 @@ dialog textarea{display:block;width:100%;margin:12px 0 8px;min-height:155px;resi
 @media(max-width:440px){.alphabet{gap:1px}.key-row{gap:3px}.tileboard{gap:4px}.game-tools{gap:5px}.score{gap:5px}.rules-button{width:38px;height:40px}.tab{padding-inline:8px}.branch-item{padding-inline:0}}
 @media(prefers-reduced-motion:reduce){.needle,.bounds-track span{transition:none}.compass.surge,.range.pulse .bounds-track{animation:none}}
   .bounds-track span { min-width: 0; }
-
+@media (max-width: 360px) {
+  .foot { font-size: 10px; }
+}
 #alphabet { gap: 0; }
 .alphabet span { border-inline: 1px solid var(--card); }
 
@@ -245,7 +258,7 @@ dialog textarea{display:block;width:100%;margin:12px 0 8px;min-height:155px;resi
     <section class="panel history"><h2>Guess history</h2><p id="history-empty">Your clues will appear here.</p><ol id="history" aria-label="Most recent guesses first"></ol></section>
   </div>
   <footer class="foot">
-    <a id="today" hidden href="./">Return to today’s puzzle</a><span id="rollover">Two puzzles every day · A new pair at 00:00 UTC</span>
+    <span id="rollover">Two puzzles daily · Resets at 00:00 UTC</span>
     <div class="credits">© <span id="copyright-year"></span>
       <div class="credit-popover">
         <button type="button" class="text-action" id="credit-toggle" aria-expanded="false" aria-controls="credit-card">aThousandCarets, LLC.</button>
