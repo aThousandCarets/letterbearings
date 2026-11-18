@@ -199,6 +199,43 @@ dialog textarea{display:block;width:100%;margin:12px 0 8px;min-height:155px;resi
   box-shadow: none;
   cursor: default;
 }
+  main.wrap {
+  width: 100%;
+  margin: 0 auto;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+main.wrap > .hero,
+main.wrap > .layout,
+main.wrap > .foot {
+  flex: none;
+}
+
+main.wrap > .foot {
+  margin-top: auto;
+  padding-block: 4px;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+
+/* Save vertical space on short screens. */
+@media (max-height: 780px) {
+  .hero { padding-block: 12px 8px; }
+  .hero .text-action { margin-top: 3px; min-height: 28px; }
+  .game { padding-block: 12px; }
+  .board-head { margin-top: 12px; }
+  .range { margin-block: 10px 8px; padding-top: 8px; }
+  .actions, .clue { margin-top: 8px; }
+}
+
+/* Cap the game panel, with room to use it on very short screens. */
+.game {
+  max-height: max(360px, 100dvh);
+  overflow-y: auto;
+}
 </style>
 </head>
 <body>
