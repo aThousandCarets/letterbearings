@@ -240,6 +240,10 @@ main.wrap > .foot {
   max-height: max(360px, 100dvh);
   overflow-y: auto;
 }
+.math-credit {
+  font-style: italic;
+  text-align: right;
+}
 </style>
 </head>
 <body>
@@ -287,7 +291,7 @@ main.wrap > .foot {
         <h2 id="math-heading">Behind the range</h2>
         <p>Arithmetic coding fits words into the interval [0, 1). Each confirmed letter selects a smaller interval. Follow the confirmed branches down to the letters still in play.</p>
         <div id="branches" class="branches" aria-label="Arithmetic coding branches"></div>
-        <p class="math-credit">Inspired by <a href="https://www.youtube.com/watch?v=qbsb9DpdZ6s" target="_blank" rel="noopener noreferrer">How to compress text to 1 bit per character [..]</a>. ¯\_(ツ)_/¯ </p>
+        <p class="math-credit">Inspired by <a href="https://www.youtube.com/watch?v=qbsb9DpdZ6s" target="_blank" rel="noopener noreferrer">How to compress text to 1 bit per character [..]</a>.</p>
       </section>
       <div id="play">
         <div id="keyboard" class="keys" role="group" aria-label="Letter keyboard"></div>
