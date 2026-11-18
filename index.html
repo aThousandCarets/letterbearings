@@ -7,6 +7,7 @@
 -->
 <html lang="en">
 <head>
+<link rel="icon" type="image/png" href="./favicon.png">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Find the daily word one letter at a time. Every guess gives you a direction.">
@@ -847,6 +848,64 @@ function updateCompass(won) {
   }
 }
 
+ let faviconFrame;
+
+function animateFavicon() {
+  const icon = $("favicon");
+  if (!icon) return;
+
+  const canvas = document.createElement("canvas");
+  canvas.width = canvas.height = 32;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return;
+
+  cancelAnimationFrame(faviconFrame);
+  const start = performance.now();
+  let lastDraw = -Infinity;
+
+  function draw(now) {
+    const done = reducedMotion.matches || now - start >= 760;
+
+    if (done || now - lastDraw >= 90) {
+      lastDraw = now;
+      const matrix = new DOMMatrixReadOnly(getComputedStyle(needles[1]).transform);
+      const angle = Math.atan2(matrix.b, matrix.a);
+
+      ctx.clearRect(0, 0, 32, 32);
+      ctx.beginPath();
+      ctx.roundRect(1, 1, 30, 30, 7);
+      ctx.fillStyle = "#f6f5ee";
+      ctx.fill();
+
+      ctx.translate(16, 16);
+      ctx.beginPath();
+      ctx.arc(0, 0, 12, 0, Math.PI * 2);
+      ctx.strokeStyle = "#21473a";
+      ctx.lineWidth = 2;
+      ctx.stroke();
+
+      ctx.rotate(angle);
+      for (const color of ["#b2802e", "#21473a"]) {
+        ctx.beginPath();
+        ctx.moveTo(0, -10);
+        ctx.lineTo(3, 0);
+        ctx.lineTo(-3, 0);
+        ctx.closePath();
+        ctx.fillStyle = color;
+        ctx.fill();
+        ctx.rotate(Math.PI);
+      }
+
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      icon.href = canvas.toDataURL("image/png");
+    }
+
+    if (!done) faviconFrame = requestAnimationFrame(draw);
+  }
+
+  faviconFrame = requestAnimationFrame(draw);
+}
+
 let lastFrame = -100;
 function sway(timestamp) {
   if (timestamp - lastFrame >= 32) {
@@ -902,6 +961,7 @@ function render() {
   $("win-score").textContent = state.score + (state.score === 1 ? " point." : " points.");
   renderRange(won);
   updateCompass(won);
+  animateFavicon();
   const last = state.history.at(-1)?.events.at(-1);
   const clue = $("clue");
   clue.replaceChildren();
